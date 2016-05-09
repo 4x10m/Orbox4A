@@ -21,7 +21,6 @@ void Parameters::write(FileStorage &fs) const {
     "svm_param_c" << this->svmParamC <<
     "svm_param_nu" << this->svmParamNu <<
     "svm_param_gamma" << this->svmParamGamma <<
-    "nb_clusters" << this->nbClusters <<
     "svm_auto_param" << this->svmAutoParam <<
     "equalize_pics" << this->equalizeHist;
 
@@ -49,7 +48,6 @@ void Parameters::read(const FileNode &node) {
     node["svm_param_gamma"] >> this->svmParamGamma;
     node["svm_param_nu"] >> this->svmParamNu;
     node["svm_use_nu"] >> this->useNuClassification;
-    node["nb_clusters"] >> this->nbClusters;
     node["svm_auto_param"] >> this->svmAutoParam;
     node["equalize_pics"] >> this->equalizeHist;
 

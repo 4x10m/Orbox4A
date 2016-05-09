@@ -72,8 +72,6 @@ void Application::run(String path, int number) {
             imshow("DEBUG", frame);
             if (waitKey(30) >= 0) {
                 videoCapture >> tempOn;
-                //TODO delete
-                imwrite(path + "tempOn.png", tempOn);
                 break;
             }
         }
@@ -93,9 +91,6 @@ void Application::run(String path, int number) {
     Mat picLightOn, picLightOff;
     this->preProcessing(tempOn, picLightOn);
     this->preProcessing(tempOff, picLightOff);
-    //TODO delete
-    imwrite(path + "picLightOn.png", picLightOn);
-    imwrite(path + "picLightOff.png", picLightOff);
 
     /*
      * Step 3 : Segmentation - finds objects put on top of the box
@@ -159,7 +154,6 @@ void Application::segmentation(Mat &inputOn, Mat &inputOff, vector<Mat> &output)
 
     // subtract the two images, only objects lit by the LEDs will appear
     absdiff(inputOff, inputOn, diff);
-    imwrite("/home/age2pierre/OrboxWorkspace/Coins/Raw/diff.png", diff);
 
     // once converted to HSV, only the value channel will be used
     // as it contained information on how much light a pixel get
@@ -182,7 +176,6 @@ void Application::segmentation(Mat &inputOn, Mat &inputOff, vector<Mat> &output)
             blurred = hsv_split[2];
             break;
     }
-    imwrite("/home/age2pierre/OrboxWorkspace/Coins/Raw/blurred.png", blurred);
 
     // thresholding applied to get a binary map
     switch (parameters.getThresholdType()) {
@@ -203,13 +196,10 @@ void Application::segmentation(Mat &inputOn, Mat &inputOff, vector<Mat> &output)
             threshold(blurred, bin, 60, 255, THRESH_BINARY);
             break;
     }
-    imwrite("/home/age2pierre/OrboxWorkspace/Coins/Raw/bin.png", bin);
 
     // erosion and & dilation applied to clean the binary map
     erode(bin, bin, getStructuringElement(MORPH_RECT, Size(parameters.getErosion(), parameters.getErosion())));
-    imwrite("/home/age2pierre/OrboxWorkspace/Coins/Raw/erosion.png", bin);
     dilate(bin, bin, getStructuringElement(MORPH_RECT, Size(parameters.getDilatation(), parameters.getDilatation())));
-    imwrite("/home/age2pierre/OrboxWorkspace/Coins/Raw/dilatation.png", bin);
 
     //find the bounding rectangle of each white spot
     vector<vector<Point>> contours;
@@ -218,15 +208,11 @@ void Application::segmentation(Mat &inputOn, Mat &inputOff, vector<Mat> &output)
     for (vector<Point> contour : contours)
         boundRect.push_back(boundingRect(Mat(contour)));
 
-    //TODO delete after
-    Mat copy = inputOn.clone();
     for (Rect rect : boundRect) {
-        rectangle(copy, rect, Scalar(0,255,0), 5);
         Mat currentShape;
         currentShape = inputOn(rect);
         output.push_back(currentShape);
     }
-    imwrite("/home/age2pierre/OrboxWorkspace/Coins/Raw/segmentation.png", copy);
 }
 
 void Application::training() {
@@ -253,7 +239,7 @@ void Application::training() {
     else
         matcher = makePtr<BFMatcher>(NORM_HAMMING);
 
-    trainer = makePtr<BOWKmajorityTrainer>(parameters.getNbClusters());
+    trainer = makePtr<BOWKmajorityTrainer>(parameters.getClusterFiles().size());
     extractor = makePtr<BOWImgDescriptorExtractor>(feature2d, matcher);
 
     /*
@@ -310,7 +296,7 @@ void Application::training() {
         if (fileStorage.isOpened()) {
             int label;
             fileStorage["label"] >> label;
-            FileNode fileNode = fileStorage["pics_path_training_svm"]; //TODO separate BOW training data and SVM training data
+            FileNode fileNode = fileStorage["pics_path_training_svm"];
             if (fileNode.type() == FileNode::SEQ) {
                 FileNodeIterator iterator1 = fileNode.begin();
                 FileNodeIterator iterator2 = fileNode.end();
@@ -383,7 +369,7 @@ void Application::testing() {
         if (fileStorage.isOpened()) {
             int label;
             fileStorage["label"] >> label;
-            FileNode fileNode = fileStorage["pics_path_testing"]; //TODO separate BOW training data and SVM training data
+            FileNode fileNode = fileStorage["pics_path_testing"];
             if (fileNode.type() == FileNode::SEQ) {
                 FileNodeIterator iterator1 = fileNode.begin();
                 FileNodeIterator iterator2 = fileNode.end();

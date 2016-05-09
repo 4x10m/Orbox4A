@@ -5,7 +5,7 @@
         <debug_mode>1</debug_mode>
         <!-- Positive integer corresponding to the camera device input as understood by V4L -->
         <camera_device>0</camera_device>
-        <path_to_camera_config>/home/age2pierre/OrboxWorkspace/CameraConfig.xml</path_to_camera_config>
+        <path_to_camera_config>./Data/CameraConfig.xml</path_to_camera_config>
         <!-- Camera matrix and distortion coefficients are caculated by using the tutorial code calib3d in opencv3 with fisheye set on -->
         <camera_matrix type_id="opencv-matrix">
             <rows>3</rows>
@@ -44,30 +44,19 @@
         <svm_param_nu>0.9</svm_param_nu>
         <!-- Set Gamma parameter for SVM, the parameter of a Gaussian Kernel, small gamma will give you low bias and high variance -->
         <svm_param_gamma>0.6</svm_param_gamma>
-        <nb_clusters>8</nb_clusters>
         <!-- Equalize histogram for training, 0 (false) 1 (true) -->
         <equalize_pics>0</equalize_pics>
         <!-- Optimize svm parameters, 0 (false) 1 (true) -->
         <svm_auto_param>1</svm_auto_param>
         <cluster_files>
-            /home/age2pierre/ClionProjects/Orbox/Descriptors1cAll.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors2cAll.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors5cAll.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors10cAll.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors20cAll.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors50cAll.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors100cAll.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors200cAll.xml
+            ./Data/Descriptors1cAll.xml
+            ./Data/Descriptors2cAll.xml
+            ./Data/Descriptors5cAll.xml
+            ./Data/Descriptors10cAll.xml
+            ./Data/Descriptors20cAll.xml
+            ./Data/Descriptors50cAll.xml
+            ./Data/Descriptors100cAll.xml
+            ./Data/Descriptors200cAll.xml
         </cluster_files>
-        <!--cluster_files>
-            /home/age2pierre/ClionProjects/Orbox/Descriptors1c.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors2c.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors5c.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors10c.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors20c.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors50c.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors100c.xml
-            /home/age2pierre/ClionProjects/Orbox/Descriptors200c.xml
-        </cluster_files -->
     </Parameters>
 </opencv_storage>

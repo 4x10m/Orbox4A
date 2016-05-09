@@ -6,12 +6,10 @@ int main(int argc, char *argv[]) {
     Application application(argv[1]);
     application.init();
 
+//    application.run("./Data/Raw/", 0);
 
-    application.run("/home/age2pierre/OrboxWorkspace/Coins/Raw/", 0);
-
-
-//    application.training();
-//    application.testing();
+    application.training();
+    application.testing();
 
 //    Application.close();
 

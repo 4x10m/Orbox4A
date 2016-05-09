@@ -89,10 +89,6 @@ public :
         return svmParamGamma;
     }
 
-    int getNbClusters() const {
-        return nbClusters;
-    }
-
     bool isSvmAutoParam() const {
         return svmAutoParam;
     }
@@ -126,7 +122,6 @@ private:
     double svmParamC;
     double svmParamNu;
     double svmParamGamma;
-    int nbClusters;
     bool equalizeHist;
 
 };
