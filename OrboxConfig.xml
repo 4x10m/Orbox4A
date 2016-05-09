@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<opencv_storage>
+    <Parameters>
+        <!-- 0 (false) 1 (true) -->
+        <debug_mode>1</debug_mode>
+        <!-- Positive integer corresponding to the camera device input as understood by V4L -->
+        <camera_device>0</camera_device>
+        <path_to_camera_config>/home/age2pierre/OrboxWorkspace/CameraConfig.xml</path_to_camera_config>
+        <!-- Camera matrix and distortion coefficients are caculated by using the tutorial code calib3d in opencv3 with fisheye set on -->
+        <camera_matrix type_id="opencv-matrix">
+            <rows>3</rows>
+            <cols>3</cols>
+            <dt>d</dt>
+            <data>
+                5.2847889795690969e+02 0. 5.4818230532272821e+02 0.
+                5.2797635969706243e+02 5.3091984819393133e+02 0. 0. 1.
+            </data>
+        </camera_matrix>
+        <distortion_coefficients type_id="opencv-matrix">
+            <rows>4</rows>
+            <cols>1</cols>
+            <dt>d</dt>
+            <data>
+                -3.8820178721606945e-02 0. 0. 0.
+            </data>
+        </distortion_coefficients>
+        <!-- Size of the kernel for erosion during segmentation phase -->
+        <erosion>15</erosion>
+        <!-- Size of the kernel for dilatation during segmentation phase -->
+        <dilatation>15</dilatation>
+        <!-- Blur type available are BLUR, GAUSSIAN, MEAN, NONE-->
+        <blur_type>BLUR</blur_type>
+        <!-- Threshold type available are TRIANGLE, OTSU, CONSTANT, ADAPT_GAUSSIAN, ADAPT_MEAN -->
+        <threshold_type>TRIANGLE</threshold_type>
+        <!-- Feauture type avaible are ORB, AKAZE, BRISK-->
+        <feature_type>BRISK</feature_type>
+        <!-- Flann based doesn't work in this version, 0 (false) 1 (true) -->
+        <flann_based>0</flann_based>
+        <!-- Use Nu parameter instead of C for SVM classification, 0 (false) 1 (true) -->
+        <svm_use_nu>0</svm_use_nu>
+        <!-- Set C parameter for SVM, the parameter for the soft margin cost function, bigger means softer -->
+        <svm_param_c>10</svm_param_c>
+        <!-- Set Nu parameter for SVM, in the range 0..1 the larger the value, the smoother the decision boundary -->
+        <svm_param_nu>0.9</svm_param_nu>
+        <!-- Set Gamma parameter for SVM, the parameter of a Gaussian Kernel, small gamma will give you low bias and high variance -->
+        <svm_param_gamma>0.6</svm_param_gamma>
+        <nb_clusters>8</nb_clusters>
+        <!-- Equalize histogram for training, 0 (false) 1 (true) -->
+        <equalize_pics>0</equalize_pics>
+        <!-- Optimize svm parameters, 0 (false) 1 (true) -->
+        <svm_auto_param>1</svm_auto_param>
+        <cluster_files>
+            /home/age2pierre/ClionProjects/Orbox/Descriptors1cAll.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors2cAll.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors5cAll.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors10cAll.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors20cAll.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors50cAll.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors100cAll.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors200cAll.xml
+        </cluster_files>
+        <!--cluster_files>
+            /home/age2pierre/ClionProjects/Orbox/Descriptors1c.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors2c.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors5c.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors10c.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors20c.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors50c.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors100c.xml
+            /home/age2pierre/ClionProjects/Orbox/Descriptors200c.xml
+        </cluster_files -->
+    </Parameters>
+</opencv_storage>

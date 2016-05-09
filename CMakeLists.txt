@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.5)
+project(Orbox)
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(SOURCE_FILES main.cpp Application.cpp BOWKmajorityTrainer.cpp BOWKmajorityTrainer.h Application.h Parameters.cpp Parameters.h)
+add_executable(Orbox ${SOURCE_FILES})
+target_link_libraries(Orbox ${OpenCV_LIBS})
