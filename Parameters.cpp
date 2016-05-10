@@ -22,7 +22,10 @@ void Parameters::write(FileStorage &fs) const {
     "svm_param_nu" << this->svmParamNu <<
     "svm_param_gamma" << this->svmParamGamma <<
     "svm_auto_param" << this->svmAutoParam <<
-    "equalize_pics" << this->equalizeHist;
+    "equalize_pics" << this->equalizeHist <<
+    "use_knearest" << this->useKNearest <<
+    "dictionary_size" << this->dictionarySize <<
+    "k_for_knn" << this->kForKNN;
 
     fs << "cluster_files" << "[";
     for (string str : this->clusterFiles)
@@ -50,6 +53,9 @@ void Parameters::read(const FileNode &node) {
     node["svm_use_nu"] >> this->useNuClassification;
     node["svm_auto_param"] >> this->svmAutoParam;
     node["equalize_pics"] >> this->equalizeHist;
+    node["use_knearest"] >> this->useKNearest;
+    node["dictionary_size"] >> this->dictionarySize;
+    node["k_for_knn"] >> this->kForKNN;
 
     if (node["cluster_files"].type() == FileNode::SEQ) {
         FileNodeIterator iterator1 = node["cluster_files"].begin();

@@ -239,13 +239,13 @@ void Application::training() {
     else
         matcher = makePtr<BFMatcher>(NORM_HAMMING);
 
-    trainer = makePtr<BOWKmajorityTrainer>(parameters.getClusterFiles().size());
+    trainer = makePtr<BOWKmajorityTrainer>(parameters.getDictionarySize());
     extractor = makePtr<BOWImgDescriptorExtractor>(feature2d, matcher);
 
     /*
      * Train BOW using Features2D features
      */
-    cout << "... training BOW ..." << endl;
+    cout << "========= BOW =========" << endl;
 
     for (string pathToClusterFile : parameters.getClusterFiles()) {
         FileStorage fileStorage(pathToClusterFile, FileStorage::READ);
@@ -282,12 +282,12 @@ void Application::training() {
     extractor->setVocabulary(vocab);
     cout << "\tBOW Vocab size : " << vocab.size() << endl;
     cout << "\tFeautures used : " << parameters.getFeatureTypeString() << endl;
-    cout << "\tEqualize histogram : " << (parameters.isEqualizeHist()?"Yes":"No") << endl;
+    cout << "\tEqualize histogram : " << (parameters.isEqualizeHist() ? "Yes" : "No") << endl;
 
     /*
      *  Gather data and then train SVM
      */
-    cout << "... training SVM ..." << endl;
+    cout << "====== Classifier ======" << endl;
 
     Mat svmTrainData;
     Mat svmTrainLabels;
@@ -327,43 +327,57 @@ void Application::training() {
         else
             cout << "ERROR : Could not open the file : " << pathToClusterFile << endl;
     }
-    cout << "\tSVM data size : " << svmTrainData.size() << endl;
-    cout << "\tSVM labels size : " << svmTrainLabels.size() << endl;
+    cout << "\tData size : " << svmTrainData.size() << endl;
+    cout << "\tLabels size : " << svmTrainLabels.size() << endl;
 
-    svm = SVM::create();
-    svm->setKernel(SVM::RBF);
-    if (parameters.isUseNuClassification())
-        svm->setType(SVM::NU_SVC);
-    else
-        svm->setType(SVM::C_SVC);
-    svm->setC(parameters.getSvmParamC());
-    svm->setNu(parameters.getSvmParamNu());
-    svm->setGamma(parameters.getSvmParamGamma());
+    if (parameters.isUseKNearest()) {
+        kNearest = KNearest::create();
+        kNearest->setDefaultK(parameters.getKForKNN());
+    }
+    else {
+        svm = SVM::create();
+        svm->setKernel(SVM::RBF);
+        if (parameters.isUseNuClassification())
+            svm->setType(SVM::NU_SVC);
+        else
+            svm->setType(SVM::C_SVC);
+        svm->setC(parameters.getSvmParamC());
+        svm->setNu(parameters.getSvmParamNu());
+        svm->setGamma(parameters.getSvmParamGamma());
+    }
 
     Ptr<TrainData> trainData = TrainData::create(svmTrainData, ROW_SAMPLE, svmTrainLabels);
 
     bool res;
-    if (parameters.isSvmAutoParam())
+    if (parameters.isUseKNearest())
+        res = kNearest->train(trainData);
+    else if (parameters.isSvmAutoParam())
         res = svm->trainAuto(trainData);
     else
         res = svm->train(trainData);
 
-    if (!res)
-        cout << "ERROR : SVM training failed !";
-    else {
+    if (!res) {
+        cout << "ERROR : Clasifier training failed !";
+        return;
+    }
+    else if (!parameters.isUseKNearest()) {
         cout << "\tSVM type :" <<
         ((svm->getType() == SVM::NU_SVC) ? "Nu-Support Vector Classification" : "C-Support Vector Classification") <<
         endl;
         cout << "\tSVM C param : " << svm->getC() << endl;
         cout << "\tSVM Nu param : " << svm->getC() << endl;
         cout << "\tSVM Gamma param : " << svm->getGamma() << endl;
-        cout << "OK\n" << endl;
     }
-
+    else
+        cout << "\tK-Nearest Neighbor ( K = " << kNearest->getDefaultK() << " )" << endl;
+    cout << "Done !\n" << endl;
 
 }
 
 void Application::testing() {
+    FileStorage storage = FileStorage("./Features.xml", FileStorage::WRITE);
+    int j(0);
+
     for (string pathToClusterFile : parameters.getClusterFiles()) {
         FileStorage fileStorage(pathToClusterFile, FileStorage::READ);
         if (fileStorage.isOpened()) {
@@ -373,7 +387,7 @@ void Application::testing() {
             if (fileNode.type() == FileNode::SEQ) {
                 FileNodeIterator iterator1 = fileNode.begin();
                 FileNodeIterator iterator2 = fileNode.end();
-                cout << "Prediction for " << label << " :" << endl;
+                cout << format("Recognition rate for %3d is : ", label);
                 int total(0), good(0), foundFeatures(0);
                 for (; iterator1 != iterator2; iterator1++) {
                     Mat im, temp, bowFeatures;
@@ -387,16 +401,28 @@ void Application::testing() {
                     feature2d->detect(im, keyPoints);
                     extractor->compute2(im, keyPoints, bowFeatures);
                     total++;
+
                     if (!bowFeatures.empty()) {
+//                        string path = *iterator1;
+//                        storage << format("img%04d", j++) << "{" <<
+//                                "path" << path <<
+//                                "class" << label <<
+//                                "vector" << bowFeatures <<
+//                                "}" ;
+
                         foundFeatures++;
-                        if (svm->predict(bowFeatures) == label)
-                            good++;
+                        if (parameters.isUseKNearest()) {
+                            if (kNearest->predict(bowFeatures) == label)
+                                good++;
+                        }
+                        else {
+                            if (svm->predict(bowFeatures) == label)
+                                good++;
+                        }
                     }
                 }
 
-                cout << format("\tTotal %3d\n", total) <<
-                format("\tFfeat %3d ( %3.1f %%)\n", foundFeatures, 100 * ((double) foundFeatures) / total) <<
-                format("\tGood  %3d ( %3.1f %%)", good, 100 * ((double) good) / foundFeatures) << endl;
+                cout << format("%3d / %3d ( %3.1f %%)", good, total, 100 * ((double) good) / foundFeatures) << endl;
             }
             else {
                 cout << "ERROR : the file \"" << pathToClusterFile <<

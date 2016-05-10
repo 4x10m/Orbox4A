@@ -24,6 +24,8 @@ private :
     Parameters parameters;
     Mat map1, map2;
     Ptr<SVM> svm;
+    Ptr<KNearest> kNearest;
+    Ptr<TrainData> trainData;
     Ptr<Feature2D> feature2d;
     Ptr<BOWImgDescriptorExtractor> extractor;
 

@@ -33,9 +33,17 @@
         <!-- Threshold type available are TRIANGLE, OTSU, CONSTANT, ADAPT_GAUSSIAN, ADAPT_MEAN -->
         <threshold_type>TRIANGLE</threshold_type>
         <!-- Feauture type avaible are ORB, AKAZE, BRISK-->
-        <feature_type>BRISK</feature_type>
+        <feature_type>ORB</feature_type>
         <!-- Flann based doesn't work in this version, 0 (false) 1 (true) -->
         <flann_based>0</flann_based>
+        <!-- Size of the dictionary for the BOW -->
+        <dictionary_size>300</dictionary_size>
+        <!-- Use KNearest instead of SVM for classification, 0 (false) 1 (true)  -->
+        <use_knearest>0</use_knearest>
+        <!-- Set K value for KNearest -->
+        <k_for_knn>32</k_for_knn>
+        <!-- Optimize svm parameters, 0 (false) 1 (true) -->
+        <svm_auto_param>1</svm_auto_param>
         <!-- Use Nu parameter instead of C for SVM classification, 0 (false) 1 (true) -->
         <svm_use_nu>0</svm_use_nu>
         <!-- Set C parameter for SVM, the parameter for the soft margin cost function, bigger means softer -->
@@ -45,9 +53,7 @@
         <!-- Set Gamma parameter for SVM, the parameter of a Gaussian Kernel, small gamma will give you low bias and high variance -->
         <svm_param_gamma>0.6</svm_param_gamma>
         <!-- Equalize histogram for training, 0 (false) 1 (true) -->
-        <equalize_pics>0</equalize_pics>
-        <!-- Optimize svm parameters, 0 (false) 1 (true) -->
-        <svm_auto_param>1</svm_auto_param>
+        <equalize_pics>1</equalize_pics>
         <cluster_files>
             ./Data/Descriptors1cAll.xml
             ./Data/Descriptors2cAll.xml

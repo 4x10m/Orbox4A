@@ -101,6 +101,19 @@ public :
         return equalizeHist;
     }
 
+    bool isUseKNearest() const {
+        return useKNearest;
+    }
+
+    int getDictionarySize() const {
+        return dictionarySize;
+    }
+
+
+    int getKForKNN() const {
+        return kForKNN;
+    }
+
 private:
     string pathToCameraConfig;
     int cameraDevice;
@@ -123,6 +136,9 @@ private:
     double svmParamNu;
     double svmParamGamma;
     bool equalizeHist;
+    bool useKNearest;
+    int dictionarySize;
+    int kForKNN;
 
 };
 
