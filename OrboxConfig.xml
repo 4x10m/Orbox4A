@@ -37,11 +37,11 @@
         <!-- Flann based doesn't work in this version, 0 (false) 1 (true) -->
         <flann_based>0</flann_based>
         <!-- Size of the dictionary for the BOW -->
-        <dictionary_size>300</dictionary_size>
+        <dictionary_size>3554</dictionary_size>
         <!-- Use KNearest instead of SVM for classification, 0 (false) 1 (true)  -->
         <use_knearest>0</use_knearest>
         <!-- Set K value for KNearest -->
-        <k_for_knn>32</k_for_knn>
+        <k_for_knn>10</k_for_knn>
         <!-- Optimize svm parameters, 0 (false) 1 (true) -->
         <svm_auto_param>1</svm_auto_param>
         <!-- Use Nu parameter instead of C for SVM classification, 0 (false) 1 (true) -->
@@ -55,14 +55,14 @@
         <!-- Equalize histogram for training, 0 (false) 1 (true) -->
         <equalize_pics>1</equalize_pics>
         <cluster_files>
-            ./Data/Descriptors1cAll.xml
-            ./Data/Descriptors2cAll.xml
-            ./Data/Descriptors5cAll.xml
-            ./Data/Descriptors10cAll.xml
-            ./Data/Descriptors20cAll.xml
-            ./Data/Descriptors50cAll.xml
-            ./Data/Descriptors100cAll.xml
-            ./Data/Descriptors200cAll.xml
+            ./Data/Descriptors1c.xml
+            ./Data/Descriptors2c.xml
+            ./Data/Descriptors5c.xml
+            ./Data/Descriptors10c.xml
+            ./Data/Descriptors20c.xml
+            ./Data/Descriptors50c.xml
+            ./Data/Descriptors100c.xml
+            ./Data/Descriptors200c.xml
         </cluster_files>
     </Parameters>
 </opencv_storage>

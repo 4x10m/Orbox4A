@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <opencv_storage>
     <label>2</label>
-    <pics_path_training_bow>
+    <pics_path_training>
         ./Data/Coins/2c/SEG_08_FROM_34.png
         ./Data/Coins/2c/SEG_03_FROM_37.png
         ./Data/Coins/2c/SEG_06_FROM_066.png
@@ -79,8 +79,6 @@
         ./Data/Coins/2c/SEG_12_FROM_274.png
         ./Data/Coins/2c/OBJ_02_FROM_02.png
         ./Data/Coins/2c/OBJ_15_FROM_00.png
-    </pics_path_training_bow>
-    <pics_path_training_svm>
         ./Data/Coins/2c/SEG_07_FROM_112.png
         ./Data/Coins/2c/SEG_01_FROM_109.png
         ./Data/Coins/2c/SEG_05_FROM_235.png
@@ -158,8 +156,6 @@
         ./Data/Coins/2c/SEG_09_FROM_102.png
         ./Data/Coins/2c/SEG_07_FROM_42.png
         ./Data/Coins/2c/OBJ_07_FROM_02.png
-    </pics_path_training_svm>
-    <pics_path_testing>
         ./Data/Coins/2c/SEG_03_FROM_40.png
         ./Data/Coins/2c/SEG_02_FROM_37.png
         ./Data/Coins/2c/OBJ_07_FROM_04.png
@@ -202,6 +198,8 @@
         ./Data/Coins/2c/SEG_05_FROM_35.png
         ./Data/Coins/2c/OBJ_05_FROM_05.png
         ./Data/Coins/2c/SEG_06_FROM_44.png
+    </pics_path_training>
+    <pics_path_testing>
         ./Data/Coins/2c/SEG_07_FROM_064.png
         ./Data/Coins/2c/SEG_01_FROM_085.png
         ./Data/Coins/2c/SEG_10_FROM_272.png

@@ -250,7 +250,7 @@ void Application::training() {
     for (string pathToClusterFile : parameters.getClusterFiles()) {
         FileStorage fileStorage(pathToClusterFile, FileStorage::READ);
         if (fileStorage.isOpened()) {
-            FileNode fileNode = fileStorage["pics_path_training_bow"];
+            FileNode fileNode = fileStorage["pics_path_training"];
             if (fileNode.type() == FileNode::SEQ) {
                 FileNodeIterator iterator1 = fileNode.begin();
                 FileNodeIterator iterator2 = fileNode.end();
@@ -270,7 +270,7 @@ void Application::training() {
             }
             else {
                 cout << "ERROR : the file \"" << pathToClusterFile <<
-                "\" does not contain a sequence <pics_path_training_bow>." <<
+                "\" does not contain a sequence <pics_path_training>." <<
                 endl;
             }
             fileStorage.release();
@@ -296,7 +296,7 @@ void Application::training() {
         if (fileStorage.isOpened()) {
             int label;
             fileStorage["label"] >> label;
-            FileNode fileNode = fileStorage["pics_path_training_svm"];
+            FileNode fileNode = fileStorage["pics_path_training"];
             if (fileNode.type() == FileNode::SEQ) {
                 FileNodeIterator iterator1 = fileNode.begin();
                 FileNodeIterator iterator2 = fileNode.end();
@@ -319,7 +319,7 @@ void Application::training() {
             }
             else {
                 cout << "ERROR : the file \"" << pathToClusterFile <<
-                "\" does not contain a sequence <pics_path_training_svm>." <<
+                "\" does not contain a sequence <pics_path_training>." <<
                 endl;
             }
             fileStorage.release();

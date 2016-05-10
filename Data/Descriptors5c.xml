@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <opencv_storage>
     <label>5</label>
-    <pics_path_training_bow>
+    <pics_path_training>
         ./Data/Coins/5c/SEG_12_FROM_272.png
         ./Data/Coins/5c/OBJ_04_FROM_08.png
         ./Data/Coins/5c/SEG_11_FROM_262.png
@@ -29,8 +29,6 @@
         ./Data/Coins/5c/OBJ_19_FROM_06.png
         ./Data/Coins/5c/SEG_05_FROM_065.png
         ./Data/Coins/5c/SEG_06_FROM_279.png
-    </pics_path_training_bow>
-    <pics_path_training_svm>
         ./Data/Coins/5c/SEG_17_FROM_104.png
         ./Data/Coins/5c/SEG_07_FROM_109.png
         ./Data/Coins/5c/SEG_13_FROM_087.png
@@ -54,13 +52,13 @@
         ./Data/Coins/5c/OBJ_12_FROM_01.png
         ./Data/Coins/5c/SEG_03_FROM_254.png
         ./Data/Coins/5c/SEG_08_FROM_064.png
+    </pics_path_training>
+    <pics_path_testing>
         ./Data/Coins/5c/OBJ_08_FROM_09.png
         ./Data/Coins/5c/OBJ_07_FROM_02.png
         ./Data/Coins/5c/SEG_20_FROM_265.png
         ./Data/Coins/5c/OBJ_12_FROM_05.png
         ./Data/Coins/5c/SEG_09_FROM_257.png
-    </pics_path_training_svm>
-    <pics_path_testing>
         ./Data/Coins/5c/OBJ_07_FROM_04.png
         ./Data/Coins/5c/SEG_12_FROM_066.png
         ./Data/Coins/5c/SEG_03_FROM_250.png

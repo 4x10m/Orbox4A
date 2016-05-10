@@ -1,0 +1,256 @@
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 443]
+	Feautures used : ORB
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [443 x 886]
+	Labels size : [1 x 886]
+	K-Nearest Neighbor ( K = 10 )
+Done !
+
+Recognition rate for   1 is :   2 /  50 ( 4.0 %)
+Recognition rate for   2 is :  21 /  50 ( 42.0 %)
+Recognition rate for   5 is :   5 /  35 ( 14.3 %)
+Recognition rate for  10 is :  31 /  50 ( 62.0 %)
+Recognition rate for  20 is :  25 /  50 ( 50.0 %)
+Recognition rate for  50 is :   2 /  10 ( 20.0 %)
+Recognition rate for 100 is :  30 /  50 ( 60.0 %)
+Recognition rate for 200 is :  44 /  50 ( 88.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 443]
+	Feautures used : ORB
+	Equalize histogram : No
+====== Classifier ======
+	Data size : [443 x 883]
+	Labels size : [1 x 883]
+	K-Nearest Neighbor ( K = 10 )
+Done !
+
+Recognition rate for   1 is :   4 /  50 ( 8.0 %)
+Recognition rate for   2 is :  15 /  50 ( 30.0 %)
+Recognition rate for   5 is :   6 /  35 ( 17.1 %)
+Recognition rate for  10 is :  18 /  50 ( 36.0 %)
+Recognition rate for  20 is :  19 /  50 ( 38.0 %)
+Recognition rate for  50 is :   1 /  10 ( 10.0 %)
+Recognition rate for 100 is :  31 /  50 ( 62.0 %)
+Recognition rate for 200 is :  36 /  50 ( 72.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 886]
+	Feautures used : ORB
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [886 x 886]
+	Labels size : [1 x 886]
+	K-Nearest Neighbor ( K = 10 )
+Done !
+
+Recognition rate for   1 is :   1 /  50 ( 2.0 %)
+Recognition rate for   2 is :  19 /  50 ( 38.0 %)
+Recognition rate for   5 is :   1 /  35 ( 2.9 %)
+Recognition rate for  10 is :  31 /  50 ( 62.0 %)
+Recognition rate for  20 is :  28 /  50 ( 56.0 %)
+Recognition rate for  50 is :   0 /  10 ( 0.0 %)
+Recognition rate for 100 is :  30 /  50 ( 60.0 %)
+Recognition rate for 200 is :  47 /  50 ( 94.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 1772]
+	Feautures used : ORB
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [1772 x 886]
+	Labels size : [1 x 886]
+	K-Nearest Neighbor ( K = 10 )
+Done !
+
+Recognition rate for   1 is :   2 /  50 ( 4.0 %)
+Recognition rate for   2 is :  14 /  50 ( 28.0 %)
+Recognition rate for   5 is :   2 /  35 ( 5.7 %)
+Recognition rate for  10 is :  25 /  50 ( 50.0 %)
+Recognition rate for  20 is :  27 /  50 ( 54.0 %)
+Recognition rate for  50 is :   0 /  10 ( 0.0 %)
+Recognition rate for 100 is :  37 /  50 ( 74.0 %)
+Recognition rate for 200 is :  40 /  50 ( 80.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 1772]
+	Feautures used : ORB
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [1772 x 886]
+	Labels size : [1 x 886]
+	K-Nearest Neighbor ( K = 32 )
+Done !
+
+Recognition rate for   1 is :   0 /  50 ( 0.0 %)
+Recognition rate for   2 is :   3 /  50 ( 6.0 %)
+Recognition rate for   5 is :   0 /  35 ( 0.0 %)
+Recognition rate for  10 is :  13 /  50 ( 26.0 %)
+Recognition rate for  20 is :  20 /  50 ( 40.0 %)
+Recognition rate for  50 is :   0 /  10 ( 0.0 %)
+Recognition rate for 100 is :  24 /  50 ( 48.0 %)
+Recognition rate for 200 is :  46 /  50 ( 92.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 886]
+	Feautures used : ORB
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [886 x 886]
+	Labels size : [1 x 886]
+	SVM type :C-Support Vector Classification
+	SVM C param : 312.5
+	SVM Nu param : 312.5
+	SVM Gamma param : 0.50625
+Done !
+
+Recognition rate for   1 is :  25 /  50 ( 50.0 %)
+Recognition rate for   2 is :  36 /  50 ( 72.0 %)
+Recognition rate for   5 is :  13 /  35 ( 37.1 %)
+Recognition rate for  10 is :  31 /  50 ( 62.0 %)
+Recognition rate for  20 is :  26 /  50 ( 52.0 %)
+Recognition rate for  50 is :   0 /  10 ( 0.0 %)
+Recognition rate for 100 is :  31 /  50 ( 62.0 %)
+Recognition rate for 200 is :  36 /  50 ( 72.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 221]
+	Feautures used : ORB
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [221 x 886]
+	Labels size : [1 x 886]
+	SVM type :C-Support Vector Classification
+	SVM C param : 312.5
+	SVM Nu param : 312.5
+	SVM Gamma param : 0.50625
+Done !
+
+Recognition rate for   1 is :  26 /  50 ( 52.0 %)
+Recognition rate for   2 is :  37 /  50 ( 74.0 %)
+Recognition rate for   5 is :   1 /  35 ( 2.9 %)
+Recognition rate for  10 is :  31 /  50 ( 62.0 %)
+Recognition rate for  20 is :  19 /  50 ( 38.0 %)
+Recognition rate for  50 is :   0 /  10 ( 0.0 %)
+Recognition rate for 100 is :  24 /  50 ( 48.0 %)
+Recognition rate for 200 is :  22 /  50 ( 44.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 1772]
+	Feautures used : ORB
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [1772 x 886]
+	Labels size : [1 x 886]
+	SVM type :C-Support Vector Classification
+	SVM C param : 312.5
+	SVM Nu param : 312.5
+	SVM Gamma param : 0.50625
+Done !
+
+Recognition rate for   1 is :  31 /  50 ( 62.0 %)
+Recognition rate for   2 is :  42 /  50 ( 84.0 %)
+Recognition rate for   5 is :  13 /  35 ( 37.1 %)
+Recognition rate for  10 is :  34 /  50 ( 68.0 %)
+Recognition rate for  20 is :  19 /  50 ( 38.0 %)
+Recognition rate for  50 is :   0 /  10 ( 0.0 %)
+Recognition rate for 100 is :  33 /  50 ( 66.0 %)
+Recognition rate for 200 is :  34 /  50 ( 68.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [64 x 886]
+	Feautures used : BRISK
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [886 x 886]
+	Labels size : [1 x 886]
+	K-Nearest Neighbor ( K = 10 )
+Done !
+
+Recognition rate for   1 is :   0 /  50 ( 0.0 %)
+Recognition rate for   2 is :   9 /  50 ( 18.0 %)
+Recognition rate for   5 is :   3 /  35 ( 8.6 %)
+Recognition rate for  10 is :   8 /  50 ( 16.0 %)
+Recognition rate for  20 is :  39 /  50 ( 78.0 %)
+Recognition rate for  50 is :   1 /  10 ( 10.0 %)
+Recognition rate for 100 is :  15 /  50 ( 30.0 %)
+Recognition rate for 200 is :  37 /  50 ( 74.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [61 x 886]
+	Feautures used : AKAZE
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [886 x 886]
+	Labels size : [1 x 886]
+	K-Nearest Neighbor ( K = 10 )
+Done !
+
+Recognition rate for   1 is :  13 /  50 ( 26.0 %)
+Recognition rate for   2 is :  19 /  50 ( 38.0 %)
+Recognition rate for   5 is :   1 /  35 ( 2.9 %)
+Recognition rate for  10 is :  36 /  50 ( 72.0 %)
+Recognition rate for  20 is :  21 /  50 ( 42.0 %)
+Recognition rate for  50 is :   0 /  10 ( 0.0 %)
+Recognition rate for 100 is :  26 /  50 ( 52.0 %)
+Recognition rate for 200 is :  29 /  50 ( 58.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Training ...
+========= BOW =========
+	BOW Vocab size : [32 x 3554]
+	Feautures used : ORB
+	Equalize histogram : Yes
+====== Classifier ======
+	Data size : [3554 x 886]
+	Labels size : [1 x 886]
+	SVM type :C-Support Vector Classification
+	SVM C param : 312.5
+	SVM Nu param : 312.5
+	SVM Gamma param : 0.50625
+Done !
+
+Recognition rate for   1 is :  28 /  50 ( 56.0 %)
+Recognition rate for   2 is :  44 /  50 ( 88.0 %)
+Recognition rate for   5 is :  15 /  35 ( 42.9 %)
+Recognition rate for  10 is :  39 /  50 ( 78.0 %)
+Recognition rate for  20 is :  22 /  50 ( 44.0 %)
+Recognition rate for  50 is :   0 /  10 ( 0.0 %)
+Recognition rate for 100 is :  37 /  50 ( 74.0 %)
+Recognition rate for 200 is :  36 /  50 ( 72.0 %)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
